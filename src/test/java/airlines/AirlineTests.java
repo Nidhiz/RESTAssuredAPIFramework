@@ -1,20 +1,21 @@
 package airlines;
 
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.RestUtils;
+import restUtils.RestUtils;
+import utils.JsonUtils;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AirlineTests {
 
     @Test
-    public void createAirlines(){
-        String endPoint = "https://api.instantwebtools.net/v1/airlines";
+    public void createAirlines() throws IOException {
+        Map<String, String>  data = JsonUtils.getJsonDataAsMap("airlines/qa/airlinesAPIData.json");
+        String endPoint = data.get("createAirlinesEndpoints");
         Map<String, Object> payload = Payloads.createAirlinePayloadFromMap("124781023", "Sri Lankan Airways", "Sri Lanka",
                 "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/sri_lanka.png",
                 "From Sri Lanka", "Katunayake, Sri Lanka", "www.srilankaairways.com", "1990 ");
