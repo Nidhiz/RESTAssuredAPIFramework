@@ -50,15 +50,15 @@ public class ExtendReportManager {
     }
 
     public static void logWarningDetails(String log) {
-        Setup.extentTest.get().pass(MarkupHelper.createLabel(log, ExtentColor.YELLOW));
+        Setup.extentTest.get().warning(MarkupHelper.createLabel(log, ExtentColor.YELLOW));
     }
 
     public static void logInfoDetails(String log) {
-        Setup.extentTest.get().pass(MarkupHelper.createLabel(log, ExtentColor.GREY));
+        Setup.extentTest.get().info(MarkupHelper.createLabel(log, ExtentColor.GREY));
     }
 
     public static void logJson(String json) {
-        Setup.extentTest.get().pass(MarkupHelper.createCodeBlock(json, CodeLanguage.JSON));
+        Setup.extentTest.get().info(MarkupHelper.createCodeBlock(json, CodeLanguage.JSON));
     }
 
     public static void logHeaders(List<Header> headerList) {
