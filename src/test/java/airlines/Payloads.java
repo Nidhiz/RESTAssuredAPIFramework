@@ -1,8 +1,6 @@
 package airlines;
 
 import airlines.pojos.Airline;
-import net.datafaker.Faker;
-import org.apache.commons.lang3.RandomStringUtils;
 import utils.DateUtils;
 import utils.ERandomDataTypeNames;
 import utils.RandomDataGenerator;

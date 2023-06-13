@@ -5,7 +5,6 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Map;
 
 public class AirlineTests extends AirlineAPIs {
 
@@ -21,7 +20,11 @@ public class AirlineTests extends AirlineAPIs {
        // Map<String, Object> payload = Payloads.createAirlinePayloadFromMap();
 
         /* From POJO class*/
-        Airline payload = Payloads.createAirlinePayloadFromPojo();
+       // Airline payload = Payloads.createAirlinePayloadFromPojo();
+
+        /* From Pojo class default values */
+
+        Airline payload = new Airline();
         Response response = createAirline(payload);
         Assert.assertEquals(response.statusCode(), 200);
     }
