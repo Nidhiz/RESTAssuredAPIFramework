@@ -1,5 +1,6 @@
 package airlines;
 
+import airlines.pojos.Airline;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,7 +18,10 @@ public class AirlineTests extends AirlineAPIs {
 //                "From Sri Lanka", "Katunayake, Sri Lanka", "www.srilankaairways.com", "1990 ");
 
         /* From data faker library */
-        Map<String, Object> payload = Payloads.createAirlinePayloadFromMap();
+       // Map<String, Object> payload = Payloads.createAirlinePayloadFromMap();
+
+        /* From POJO class*/
+        Airline payload = Payloads.createAirlinePayloadFromPojo();
         Response response = createAirline(payload);
         Assert.assertEquals(response.statusCode(), 200);
     }

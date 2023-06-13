@@ -1,5 +1,6 @@
 package airlines;
 
+import airlines.pojos.Airline;
 import net.datafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
 import utils.DateUtils;
@@ -49,13 +50,25 @@ public class Payloads {
         payload.put("name", RandomDataGenerator.getRandomDataFor(ERandomDataTypeNames.FIRSTNAME));
         payload.put("country", RandomDataGenerator.getRandomDataFor(ERandomDataTypeNames.COUNTRY));
         payload.put("logo", RandomDataGenerator.getRandomAlphabet(25));
-        payload.put("slogan",RandomDataGenerator.getRandomAlphabet(10));
+        payload.put("slogan", RandomDataGenerator.getRandomAlphabet(10));
         payload.put("head_quaters", RandomDataGenerator.getRandomDataFor(ERandomDataTypeNames.CITYNAME));
         payload.put("website", RandomDataGenerator.getRandomWebsiteName());
         payload.put("established", RandomDataGenerator.getRandomNumber(1900, DateUtils.getCurrentYear()));
 
         return payload;
+    }
 
-
+    public static Airline createAirlinePayloadFromPojo() {
+        return Airline
+                .builder()
+                .id(Integer.parseInt(RandomDataGenerator.getRandomNumber(6)))
+                .name(RandomDataGenerator.getRandomDataFor(ERandomDataTypeNames.FIRSTNAME))
+                .country(RandomDataGenerator.getRandomDataFor(ERandomDataTypeNames.COUNTRY))
+                .logo(RandomDataGenerator.getRandomAlphabet(25))
+                .slogan(RandomDataGenerator.getRandomAlphabet(10))
+                .head_quaters(RandomDataGenerator.getRandomDataFor(ERandomDataTypeNames.CITYNAME))
+                .website(RandomDataGenerator.getRandomWebsiteName())
+                .established(String.valueOf(RandomDataGenerator.getRandomNumber(1900, DateUtils.getCurrentYear())))
+                .build();
     }
 }
