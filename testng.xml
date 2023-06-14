@@ -6,11 +6,11 @@
     </listeners>
     <test verbose="2" preserve-order="true" name="C:/Users/Kishor/IdeaProjects/RESTAssuredAPIFrameworf">
         <classes>
-            <class name="airlines.AirlineTests">
-                <methods>
-<!--                    <include name="createAirlines"/>-->
-                    <include name="createAirlinesAndVerifyResponse"/>
-                </methods>
+            <class name="airlines.AirlineTestsAssertions">
+<!--                <methods>-->
+<!--&lt;!&ndash;                    <include name="createAirlines"/>&ndash;&gt;-->
+<!--                    <include name="createAirlinesAndVerifyResponse"/>-->
+<!--                </methods>-->
             </class>
         </classes>
     </test>
