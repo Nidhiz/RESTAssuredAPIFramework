@@ -1,12 +1,16 @@
 package airlines;
 
 import airlines.pojos.Airline;
+import airlines.pojos.AirlinePoiji;
+import com.poiji.bind.Poiji;
 import io.restassured.response.Response;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import restUtils.AssertionUtils;
 import utils.ExcelUtils;
+import utils.RandomDataGenerator;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
@@ -29,8 +33,22 @@ public class AirlineTestsAssertions extends AirlineAPIs {
 //
 //    }
 
-    @Test(dataProvider = "airlineData")
+    @Test(dataProvider = "airlineDataPoiji")
     public void createAirlinesForAssertions(Airline airline) {
+
+        String cellValue = airline.getIdValue();
+
+        int size = 6; //for Excel data default size for Id
+        if (cellValue.contains("RandomNumber")) {
+
+            //with size
+            if (cellValue.contains("_")) {
+                size = Integer.parseInt(cellValue.split("_")[1]);
+            }
+            cellValue = RandomDataGenerator.getRandomNumber(size);
+        }
+
+        airline.setId(Integer.parseInt(cellValue));
         Response response = createAirline(airline);
         Map<String, Object> expectedValuesMap = new HashMap<>();
         expectedValuesMap.put("id", airline.getId());
@@ -67,4 +85,10 @@ public class AirlineTestsAssertions extends AirlineAPIs {
         return airlineListData.iterator();
     }
 
+    @DataProvider(name = "airlineDataPoiji")
+    public Iterator<Airline> getCreateAirlinesDataPoiji(Poiji poiji) throws IOException {
+        List<Airline> data = Poiji.fromExcel(new File("src/test/resources/testData/createAirlineData.xlsx")
+                , Airline.class);
+        return data.iterator();
+    }
 }
