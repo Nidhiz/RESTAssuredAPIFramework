@@ -1,14 +1,14 @@
 package airlines;
 
 import airlines.pojos.Airline;
+import airlines.pojos.CreateAirline;
 import io.restassured.response.Response;
 import restUtils.RestUtils;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class AirlineAPIs {
-    public Response createAirline(Map<String, Object> createAirlinePayload){
+    public Response createAirline(CreateAirline createAirlinePayload){
         String endPoint = (String) Base.dataFromJsonFile.get("createAirlinesEndpoints");
         return RestUtils.performPost(endPoint, createAirlinePayload, new HashMap<>());
     }

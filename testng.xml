@@ -4,9 +4,9 @@
     <listeners>
         <listener class-name="reporting.Setup"></listener>
     </listeners>
-    <test verbose="2" preserve-order="true" name="C:/Users/Kishor/IdeaProjects/RESTAssuredAPIFrameworf">
+    <test verbose="2" preserve-order="true" name="C:/Users/Kishor/IdeaProjects/RESTAssuredAPIFrameworf/src/test/java/airlines/AirlineTests.javass  ">
         <classes>
-            <class name="airlines.AirlineTestsAssertions">
+            <class name="airlines.AirlineTestsScenarios">
 <!--                <methods>-->
 <!--&lt;!&ndash;                    <include name="createAirlines"/>&ndash;&gt;-->
 <!--                    <include name="createAirlinesAndVerifyResponse"/>-->
